@@ -261,11 +261,28 @@ IoT 개발자 WPF 학습 리포지토리
 ## 4일차
 
 ### DB연결 CURD 연습(계속)
+1. BookGenre에서 INSERT, UPDATE 기능 구현
+2. NLog.config 생성
+3. Helpers.Common 클래스 생성
+    - NLog 인스턴스 생성
+    - 공통 DB 연결 문자열 생성
+    - MahApps.Metro 다이얼로그 코디네이터 생성
+4. 각 ViewModel에 IDialogCoordinator 관련 코딩 추가
+    - ViewModel 생성자에 파라미터 추가
+    - View, ViewModel 연동시 IDialogCoordinator 연결
+5. View에 Dialog 관련 네임스페이스, 속성 추가
+6. await this.dialogCoordinator.ShowMessageAsync() 사용
+
+    <img src="./image/wpf0011.png" width="650">
+
+7. BookView.xaml 화면 작업
+8. MemberView.xaml, RentalView.xaml 화면 작업
+9. ViewModel들 작업
 
 #### DB 연결 CRUD 연습 시 추가 필요사항
-- [ ] NLog로 각 기능 동작시 로그 남기기. 공통화 작업
-- [ ] DB쿼리 모델로 이전
-- [ ] 연결 문자열 Common으로 이전
+- [x] 여러 번 나오는 로직 메서드화
+- [x] NLog로 각 기능 동작시 로그 남기기. 공통화 작업
+- [x] 연결 문자열 Common으로 이전
+- [x] 종료 메뉴 다이얼로그 MetroUI로 변경
 - [ ] MahApps.Metro 메시지 형태로 변경
-- [ ] 삭제 여부 메시지 박스 추가
-- [ ] 종료 메뉴 아이템 동작
+- [x] 삭제 여부 메시지 박스 추가
