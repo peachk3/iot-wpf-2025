@@ -1,8 +1,6 @@
 ﻿using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MahApps.Metro.Controls.Dialogs;
-using NLog.Targets.Wrappers;
-using System.Security.Policy;
 using System.Windows;
 using System.Windows.Controls;
 using WpfBookRentalShop01.Helpers;
@@ -12,7 +10,7 @@ namespace WpfBookRentalShop01.ViewModels
 {
     public partial class MainViewModel : ObservableObject
     {
-        // MahApps.Metro 형태 다이얼로그 코드네이터
+        // MahApps.Metro 형태 다이얼로그 코디네이터
         private readonly IDialogCoordinator dialogCoordinator;
 
         private string _greeting;
@@ -23,7 +21,8 @@ namespace WpfBookRentalShop01.ViewModels
             set => SetProperty(ref _greeting, value);
         }
 
-        private string _currentStatus; // Changed type from UserControl to string
+        private string _currentStatus;
+
         public string CurrentStatus
         {
             get => _currentStatus;
@@ -43,7 +42,7 @@ namespace WpfBookRentalShop01.ViewModels
             this.dialogCoordinator = coordinator; // 다이얼로그코디네이터 초기화
             Greeting = "BookRentalShop!!";
 
-            Common.LOGGER.Info("책 대여점 프로그램 실행!");
+            Common.LOGGER.Info("책대여점 프로그램 실행!");
         }
 
         #region '화면 기능(이벤트)처리'
@@ -51,9 +50,9 @@ namespace WpfBookRentalShop01.ViewModels
         [RelayCommand]
         public async Task AppExit()
         {
-            //MessageBox.Show("종료합니다");
+            //MessageBox.Show("종료합니다!");
             //await this.dialogCoordinator.ShowMessageAsync(this, "종료합니다!", "메시지");
-            var result = await this.dialogCoordinator.ShowMessageAsync(this, "종료 확인", "종료하시겠습니까?", MessageDialogStyle.AffirmativeAndNegative);
+            var result = await this.dialogCoordinator.ShowMessageAsync(this, "종료확인", "종료하시겠습니까?", MessageDialogStyle.AffirmativeAndNegative);
             if (result == MessageDialogResult.Affirmative) // OK를 누르면
             {
                 Application.Current.Shutdown();
@@ -73,9 +72,9 @@ namespace WpfBookRentalShop01.ViewModels
                 DataContext = vm,
             };
             CurrentView = v;
-            CurrentStatus = "책 장르 관리 화면입니다."; // No changes needed here as CurrentStatus is now a string
+            CurrentStatus = "책장르관리 화면입니다";
 
-            Common.LOGGER.Info("책 장르 관리 실행!");
+            Common.LOGGER.Info("책장르관리 실행");
         }
 
         [RelayCommand]
@@ -87,10 +86,37 @@ namespace WpfBookRentalShop01.ViewModels
                 DataContext = vm,
             };
             CurrentView = v;
-            CurrentStatus = "책 관리 화면입니다."; // No changes needed here as CurrentStatus is now a string
+            CurrentStatus = "책관리 화면입니다";
 
-            Common.LOGGER.Info("책 관리 화면 실행!");
+            Common.LOGGER.Info("책관리 실행");
         }
+
+        [RelayCommand]
+        public void ShowMembers()
+        {
+            var vm = new MembersViewModel(Common.DIALOGCOORDINATOR);
+            var v = new MembersView
+            {
+                DataContext = vm,
+            };
+            CurrentView = v;
+            CurrentStatus = "회원관리 화면입니다";
+            Common.LOGGER.Info("회원관리 실행");
+        }
+
+        [RelayCommand]
+        public void ShowRentals()
+        {
+            var vm = new RentalsViewModel();
+            var v = new RentalsView
+            {
+                DataContext = vm,
+            };
+            CurrentView = v;
+            CurrentStatus = "대여관리 화면입니다";
+            Common.LOGGER.Info("대여관리 실행");
+        }
+
         #endregion
     }
 }

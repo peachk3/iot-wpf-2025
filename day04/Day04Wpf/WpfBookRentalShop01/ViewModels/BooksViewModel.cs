@@ -19,7 +19,7 @@ namespace WpfBookRentalShop01.ViewModels
 
         public BooksViewModel()
         {
-            Message = "책 관리 화면입니다.";
+            Message = "책 관리 화면입니다";
         }
     }
 }

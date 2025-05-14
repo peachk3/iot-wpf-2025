@@ -15,8 +15,9 @@ namespace WpfBookRentalShop01
         {
             Common.DIALOGCOORDINATOR = DialogCoordinator.Instance;
 
+            
             var viewModel = new MainViewModel(Common.DIALOGCOORDINATOR);
-            var view = new MainView()
+            var view = new MainView
             {
                 DataContext = viewModel
             };
@@ -25,4 +26,5 @@ namespace WpfBookRentalShop01
             view.ShowDialog();
         }
     }
+
 }
