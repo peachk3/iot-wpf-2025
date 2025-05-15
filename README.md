@@ -365,3 +365,10 @@ IoT 개발자 WPF 학습 리포지토리
 6. 기타 작업 완료
 7. 결과 화면
 
+
+
+    https://github.com/user-attachments/assets/d926aeba-9542-439d-b7e0-367187379810
+
+
+
+
