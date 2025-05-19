@@ -396,3 +396,14 @@ IoT 개발자 WPF 학습 리포지토리
 
 ### 부산광역시 부산맛집 정보앱 (계속)
 
+
+    https://github.com/user-attachments/assets/6d75c5bc-455d-495d-a0f4-e06349a9cb52
+
+
+## 8일차 (05.19)
+
+### 부산광역시 부산맛집 정보앱 (계속)
+
+
+    https://github.com/user-attachments/assets/6d75c5bc-455d-495d-a0f4-e06349a9cb52
+
