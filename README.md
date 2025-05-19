@@ -452,8 +452,8 @@ IoT 개발자 WPF 학습 리포지토리
     - new Connection 생성, Host 127.0.0.1, Port 1883 저장
     - CONNECT
 5. VS Code에서 [MQTTPub.py](./day08/Pythons/MQTTPub.py) 파일 생성
-
-    
+   
+    https://github.com/user-attachments/assets/76d9baa2-1ffa-4bd2-a465-dc4b34aca4b1
 
 ### 스마트홈 프로젝트 시작
 1. 화면 UI 변경
