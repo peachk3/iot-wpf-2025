@@ -1,5 +1,6 @@
 ﻿using BusanRestaurantApp.Helpers;
 using BusanRestaurantApp.Models;
+using BusanRestaurantApp.Views;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using MahApps.Metro.Controls.Dialogs;
@@ -7,6 +8,7 @@ using Newtonsoft.Json.Linq;
 using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Text;
+using System.Windows;
 
 namespace BusanRestaurantApp.ViewModels
 {
@@ -16,6 +18,7 @@ namespace BusanRestaurantApp.ViewModels
         private ObservableCollection<BusanItem> _busanItems;
         private int _pageNo;
         private int _numOfRows;
+        private BusanItem _selectedMatjibItem;
 
         public BusanMatjibViewModel(IDialogCoordinator coordinator)
         {
@@ -34,7 +37,27 @@ namespace BusanRestaurantApp.ViewModels
         public int PageNo { get => _pageNo; set => SetProperty(ref _pageNo, value); }
         public int NumOfRows { get => _numOfRows; set => SetProperty(ref _numOfRows, value); }
 
+        public BusanItem SelectedMatjibItem 
+        { 
+            get => _selectedMatjibItem;
+            set => SetProperty(ref _selectedMatjibItem, value); 
+        }
 
+        [RelayCommand]
+        public async Task MatjibItemDoubleClick()
+        {
+            var viewModel = new GoogleMapViewModel();
+            viewModel.SelectedMatjibItem = SelectedMatjibItem;
+            var view = new GoogleMapView
+            {
+                DataContext = viewModel,
+            };
+            view.Owner = Application.Current.MainWindow;
+            view.WindowStartupLocation = WindowStartupLocation.CenterOwner;
+            Common.LOGGER.Info($"{SelectedMatjibItem.Lat},{SelectedMatjibItem.Lng}");
+            view.ShowDialog();
+        }
+        
         [RelayCommand]
         private async Task GetDataFromOpenApi()
         {
