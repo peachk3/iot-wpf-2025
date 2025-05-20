@@ -491,3 +491,11 @@ IoT 개발자 WPF 학습 리포지토리
     - MahApps.Metro.IconPacks
     - Newtonsoft.Json
     - MQTTnet
+
+4. DB 서버에 접속자 정보확인 쿼리
+    ```sql
+    select * from information_schema.processlist limit 10;
+    ```
+
+5. WPF MVVM 전체 구현
+6. MqttPub.py와 Publish된 IoT데이터 WPF에서 Subscribe 예제
