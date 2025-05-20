@@ -473,10 +473,9 @@ IoT 개발자 WPF 학습 리포지토리
 
 ### 네트워크 확인
 - telnet 명령어로 서버서비스가 동작 중인지 확인
-- telnet 
+- telnet 아이피주소 포트번호
 
     ```shell
-    > telnet 아이피주소 포트번호
     # MySQL에 접속 가능한지 여부
     > telnet 127.0.0.1 3306
     # MQTT 에 접속 가능한지 여부
@@ -486,4 +485,9 @@ IoT 개발자 WPF 학습 리포지토리
 #### MQTT 시뮬레이션 (계속)
 1. MqttPub.py 소스코드에 Fake IoT 센서값 전달 코딩
 2. Fake 센싱값을 json으로 Publish
-3. C# MahApps.Metro 사용 MQTT 데이터 Subscribe 
+3. C# MahApps.Metro 사용 MQTT 데이터 Subscribe앱
+    - CommunityToolkit.MvvM
+    - MahApps.Metro
+    - MahApps.Metro.IconPacks
+    - Newtonsoft.Json
+    - MQTTnet
